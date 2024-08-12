@@ -18,7 +18,7 @@ The project's scope involves...
 **Selection of AI application to test and analyse**
 
 **Roles and Responsibilities**
-  - *James Maas* - To be assigned.
-  - *Will New* - To be assigned.
-  - *Tenzin Woeser* - To be assigned.
-  - *Suraj Khadka* - To be assigned.
+  - *James Maas* - General Assignments are made on the GitHub project scrum board.
+  - *Will New* - General Assignments are made on the GitHub project scrum board.
+  - *Tenzin Woeser* - General Assignments are made on the GitHub project scrum board.
+  - *Suraj Khadka* - General Assignments are made on the GitHub project scrum board.
