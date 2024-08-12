@@ -13,9 +13,6 @@ The scope of the project is limited to...
 
 The project's scope involves...
 
-**Selection of research paper/article for literature review**
-
-**Selection of AI application to test and analyse**
 
 **Roles and Responsibilities**
   - *James Maas* - General Assignments are made on the GitHub project scrum board.
