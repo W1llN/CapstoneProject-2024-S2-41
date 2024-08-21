@@ -3,7 +3,7 @@
 # Team Charter
 
 **Mission**\
-The team's mission is to deliver...
+The team’s mission is to deliver a comprehensive and insightful research project that explores the dual role of generative AI in both facilitating and preventing plagiarism.
 
 **Goals**\
 We aim to produce a professional, industry standard research paper. We are striving to accurately cover the ways Generative AI will impact plagiarism and analyse how this can be mitigated.
