@@ -5,10 +5,10 @@ Pipeline of Python scripts is as follows:
 	     then skip step 1.
 
 2. Run gen_tests_csv.py to generate test files
-	2.1. Move the created files into the "data" folder (this
+	2.1. Move the generated files into the "data" folder (this
 	     will overwrite existing data, if there are already
 	     existing files in "data", then skip step 2 or copy
-       only the files not filled in.)
+             only the files not filled in.)
 
 3. Fill in the test.csv files in "data"
 
