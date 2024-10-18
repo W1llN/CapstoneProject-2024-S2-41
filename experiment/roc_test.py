@@ -1,5 +1,5 @@
 """
-File: roc_test.py
+File: roc_tests.py
 Date created: 14 Oct 2024
 Author: William New (u3241279)
 
@@ -16,8 +16,11 @@ from sklearn import metrics
 
 
 # GLOBAL VARIABLE(s)
-# List of tuples, with the form (filename, line_label)
-DETECTORS = [("test_gptzero.csv", "GPTZero (n=10)")]
+# List of tuples, with the form (filename, plot_label)
+DETECTORS = [ ("data/GPTZero_tests.csv", "GPTZero"),
+	      ("data/Scispace_tests.csv", "Scispace"),
+	      ("data/Isgen_tests.csv", "Isgen"),
+	      ("data/Writefull_tests.csv", "Writefull") ]
 
 
 """
@@ -50,7 +53,8 @@ Function:    draw_ROC
 Description: Gets a list of tuples containing results from an experiment and
 	     plots the ROC_AUR curve associated with it (uses SciKit Learn)
 Inputs:      The filename containing the experiment data
-List of tuples containing results for a detector, the target axis for PyPlot and the filename of the
+	     List of tuples containing results for a detector, the target axis
+	     for PyPlot and the filename of the test csv.
 Outputs:     None
 """
 def draw_ROC(filename, target_ax, line_label):
@@ -64,7 +68,11 @@ def draw_ROC(filename, target_ax, line_label):
 	# Compute and plot ROC
 	display = metrics.RocCurveDisplay.from_predictions(y_true = is_rewritten_list,
 							   y_pred = probability_list,
-							   ax=target_ax, name=line_label)
+							   drop_intermediate = False,
+							   ax = target_ax,
+							   name = line_label,
+							   linewidth = 1.5,
+							   alpha = 0.85)
 
 
 # MAIN FUNCTION
@@ -74,11 +82,16 @@ def main():
 	main_ax.set_title("Receiver Operating Characteristic (ROC) curves")
 	main_ax.grid(linestyle="--")
 
-	# Draw ROC for each detector
+	# Uncomment to set custom colours for line plots
+	plt.gca().set_prop_cycle(color=["#ee5e56", "#1aaeeb", "#74a00d", "#9c6ac3"])
+
+	# Draw ROC for 74a00dch detector
 	for detector in DETECTORS:
 		draw_ROC(detector[0], main_ax, detector[1])
 
 	# Render
+	plt.savefig("ROC.svg")
+	plt.savefig("ROC.png")
 	plt.show()
 
 
