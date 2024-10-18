@@ -7,6 +7,9 @@ Description:
 Outputs a file telling the experimenters which
 abstracts to enter into a detection service,
 alongside whether it was rewritten or original.
+
+gen_tests.py is now deprecated and gen_tests_csv.py
+should be used instead.
 """
 import sqlite3
 import random
