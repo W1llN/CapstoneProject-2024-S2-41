@@ -1,13 +1,13 @@
 """
-File: fpr_tests.py
+File: tpr_fpr_tests.py
 Date created: 14 Oct 2024
 Author: William New (u3241279)
 
 Description:
-Outputs a false positive rate curve (parametrised by decision
-threshold) for LLM detector tests. Data are a random sample of
-original and rewritten abstracts are from GPT 4o-mini
-(generated with gen_tests_csv.py).
+Outputs false positive rate and true positive rate curves 
+for LLM detector tests (parametrised by decision threshold). 
+Data are a random sample of original and rewritten abstracts 
+are from GPT 4o-mini (generated with gen_tests_csv.py).
 """
 import csv
 import matplotlib.pyplot as plt
@@ -30,13 +30,13 @@ NROWS = 2
 NCOLS = 2
 
 # Color for curves
-TPR_COLOUR = "#1d75cd"
+TPR_COLOUR = "#1d75fd"
 FPR_COLOUR = "#ff2222"
 
 # Plotting x-axis resolution
 POINT_RES = 1000
 
-LINE_ALPHA = 0.75
+LINE_ALPHA = 0.85  # for all lines
 
 
 """
@@ -98,10 +98,10 @@ def get_fpr(data, thresh):
 
 	# Calculate false positive rate (fpr)
 	try:
-		fpr = (fp_count) / (tn_count + fn_count)
+		fpr = (fp_count) / (fp_count + tn_count)
 		return fpr
 	except ZeroDivisionError:
-		return None #0
+		return None
 
 
 """
@@ -137,12 +137,12 @@ def get_tpr(data, thresh):
 			elif is_rewritten == 1:  # false negative
 				fn_count += 1
 
-	# Calculate false positive rate (fpr)
+	# Calculate true positive rate (fpr)
 	try:
-		tpr = (tp_count) / (tp_count + fp_count)
+		tpr = (tp_count) / (tp_count + fn_count)
 		return tpr
 	except ZeroDivisionError:
-		return None #0
+		return None
 
 
 """
@@ -236,12 +236,12 @@ def main():
 
 	# Draw ROC for each detector
 	for detector in DETECTORS:
-		draw_fpr_curve(detector, main_axes)
 		draw_tpr_curve(detector, main_axes)
+		draw_fpr_curve(detector, main_axes)
 
 	# Create legend
 	handles, labels = plt.gca().get_legend_handles_labels()
-	fig.legend(handles, labels, loc = "upper right", bbox_to_anchor = (1.0, 1.0))
+	fig.legend(handles, labels, loc = "upper right", bbox_to_anchor = (0.97, 1.0))
 
 	# Optimise spacing
 	fig.tight_layout()
