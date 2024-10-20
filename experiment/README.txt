@@ -15,3 +15,5 @@ Pipeline of Python scripts is as follows:
 4. Run visualisation scripts
 	4.1. roc_tests.py will generate an ROC-AUR plot for all services.
 	4.2. hist_tests.py will produce histograms for each service's readings.
+	4.3. tpr_fpr_tests.py will produce charts of fpr and trp (like ROC curve),
+	     but parametrised by decision threshold.
