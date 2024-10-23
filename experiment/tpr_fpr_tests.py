@@ -228,7 +228,7 @@ def main():
 	# Create PyPlot objects
 	fig, main_axes = plt.subplots(nrows = NROWS, ncols = NCOLS)
 	fig.suptitle(
-		"True Positive Rate and False Positive Rate\nof GPT 4o-mini Detectors",
+		"True Positive Rate and False Positive Rate\nof GPT-4o mini Detectors",
 		x  = 0.05,
 		y  = 0.97,
 		ha = "left",
