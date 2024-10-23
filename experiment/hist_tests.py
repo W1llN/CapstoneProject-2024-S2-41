@@ -16,7 +16,7 @@ from sklearn import metrics
 
 
 # GLOBAL VARIABLE(s)
-# List of tuples, with the form (filename, plot_label, subplot_loc, colour);
+# List of tuples, with the form (filename, plot_label, subplot_loc, optional colour);
 # subplot_loc is of the form (x, y), where (0, 0) is top left corner.
 DETECTORS = [
 	( "data/GPTZero_tests.csv",   "GPTZero",   (0, 0) , "#3c1ba0" ),
@@ -35,8 +35,9 @@ BINS = 5
 # Pseudo-random number generator seed (for reproducibility)
 PRNG_SEED = 1
 
-# Color for original abstract class histogram
+# Color for original abstract histogram
 ORI_COLOUR = "#000022"
+# Color for modified abstract histogram
 MOD_COLOUR = "#1D75CD"
 
 
@@ -127,8 +128,8 @@ def main():
 	# Create PyPlot objects
 	fig, main_axes = plt.subplots(nrows = NROWS, ncols = NCOLS)
 	fig.suptitle(
-		"Probability ratings of Detection Services\n(Original vs Modified)",
-		x  = 0.1,
+		"Probability Ratings of GPT-4o mini Detectors \n(Original vs Modified)",
+		x  = 0.05,
 		y  = 0.97,
 		ha = "left",
 	)
@@ -152,4 +153,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
 
